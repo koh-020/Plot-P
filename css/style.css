@@ -21,6 +21,7 @@ h1 {
 .condition {
   display: flex;
   justify-content: space-around;
+  margin: 0px 200px 50px;
 }
 
 .condition > div > input {
