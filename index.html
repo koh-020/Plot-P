@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>動く点P</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    svg {
+      height: 150px;
+      width: 300px;
+    }
+  </style>
 </head>
   <body>
     <div class="container">
@@ -21,24 +27,62 @@
       </div>  
       <div class="relative">
         <div class="square"></div>
-        <div class="circle moving"></div>
+        <div class="circle moving" id="plot"></div>
       </div>
       <div class="btn">
         <button class="start">START</button>
         <button class="stop">STOP</button>
       </div>
+    
+    
+      <!-- アニメーション -->
+      <div class="sample">
+        <p class="point">&nbsp;</p>
+      </div>
+
+
+      <!-- anime.js試し -->
+      <div class="wrapper">
+        <div class="square-try" id="elem"></div>
+      </div>
+
+    
+
+
+      <svg width="400" height="200" viewBox="0, 0, 400, 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="0" x2="400" y2="200" stroke="#e74c3c" />
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 134">
+        <path d="
+          M133 50
+          s0-50-66-50
+          S0 50 0 50
+          l133 33
+          s0 50-66 50
+          S0 83 0 83
+      
+          M133 0
+          L200 133 266 0
+      
+          M360 83
+          l40 0
+          s0 50-66 50-66-66-66-66
+          S267 0 333 0 400 50 400 50" 
+      
+          fill="none" stroke="#e74c3c"/>
+      </svg>
+
     </div>
 
 
-    <!-- アニメーション -->
-    <div class="sample">
-      <p class="point">&nbsp;</p>
-    </div>
-
+    
 
 
     
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/anime.min.js"></script>
+
   </body>
 </html>

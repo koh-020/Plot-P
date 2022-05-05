@@ -7,8 +7,8 @@
 }
 
 .container {
-  margin-top: 10px;
-  width: 100%;
+  margin: 10px 10%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 }
@@ -84,7 +84,7 @@ h1 {
 
 
 /* 枠 */
-div.sample {
+ div.sample {
   position:relative;
   border:1px solid #ccc;
   width:320px;
@@ -92,7 +92,7 @@ div.sample {
 }
 
   /* アニメーションする要素 */
-  div.sample p.point {
+   div.sample p.point {
       position:absolute;
       left:0;
       top:180px;
@@ -101,4 +101,12 @@ div.sample {
       width:20px;
       height:20px;
       background-color:#d00;
+  }
+
+  /* anime.js試し */
+  .square-try{
+    background-color: #1fc3cd;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
   }
