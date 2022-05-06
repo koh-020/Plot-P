@@ -69,14 +69,6 @@
 
 
 
-// anime.js試し
-// var elem = document.getElementById('elem');
-// elem.addEventListener('click',function(){
-//   anime({
-//     targets: elem,
-//     translateX: 250
-//   })
-// })
 
 // ボタンを押すと点Pの色が変化し、動き出す
 $('.start').on('click', function(){
@@ -87,26 +79,76 @@ $('.start').on('click', function(){
 var elem = document.getElementById('elem');
 var plot = document.getElementById('plot');
 
-$('.start').on('click', function(){
-  // 左辺の移動
+
+// $('.start').on('click', function(){
+//   const basicTimeline = anime.timeline({
+//     loop: false,
+//   });
+//   var movingPlot = basicTimeline
+
+//   // 左辺の移動
+//   .add({
+//     targets: plot,
+//     translateY: "200",
+//     easing: 'linear',
+//     duration: 1000
+//   })
+//   .add({
+//     targets: plot,
+//     translateX: "400",
+//     easing: 'linear',
+//     duration: 2000
+//   })
+//   .add({
+//     targets: plot,
+//     translateY: "0",
+//     easing: 'linear',
+//     duration: 1000
+//   })
+//   .add({
+//     targets: plot,
+//     translateX: "0",
+//     easing: 'linear',
+//     duration: 2000
+//   });
+
+//   $('.stop').on('click', function(){
+//     movingPlot.pause;
+//   });
+
+// });
+
+
+
+
+
+
+$('.reset').on('click', function(){
   anime({
     targets: plot,
-    translateY: 200,
-    easing: 'linear'
-  }, function(){
-    lowerEdge();
+    translateX: "0",
+    translateY: "0",
+    easing: 'linear',
+    backgroundColor: '#00ffff',
+    duration: 100
   });
-  // 下辺の移動
-  function lowerEdge(){
-    $('#plot').animate({
-      targets: plot,
-      translateX: 400,
-      easing: 'linear'
-    });
-  }
-
-
 });
 
 
+
+var animation = anime({
+  targets: plot,
+  loop: false,
+  keyframes: [
+    { translateY: 200, duration: 1000},
+    { translateX: 400, duration: 2000},
+    { translateY: 0, duration: 1000},
+    { translateX: 0, duration: 2000}
+    ],
+    easing: 'linear',
+});
+
+document.querySelector('.btn .start').onclick = animation.play;
+// document.querySelector('.play-pause-demo .play').onclick = animation.play;
+document.querySelector('.stop').onclick = animation.pause;
 
