@@ -1,5 +1,5 @@
 $(function(){
-  var plot = document.getElementById('plot');
+  // var plot = document.querySelector('#plot');
 
   // $('.start').on('click', function(left){
   //   var $point = $('.relative .circle');
@@ -73,61 +73,11 @@ $(function(){
 
 
 
-  // ボタンを押すと点Pの色が変化し、動き出す
-  $('.start').on('click', function(){
-    $('.circle').css('background-color', 'red')
-  });
-
-
-  
-
-
-  // $('.start').on('click', function(){
-  //   const basicTimeline = anime.timeline({
-  //     loop: false,
-  //   });
-  //   var movingPlot = basicTimeline
-
-  //   // 左辺の移動
-  //   .add({
-  //     targets: plot,
-  //     translateY: "200",
-  //     easing: 'linear',
-  //     duration: 1000
-  //   })
-  //   .add({
-  //     targets: plot,
-  //     translateX: "400",
-  //     easing: 'linear',
-  //     duration: 2000
-  //   })
-  //   .add({
-  //     targets: plot,
-  //     translateY: "0",
-  //     easing: 'linear',
-  //     duration: 1000
-  //   })
-  //   .add({
-  //     targets: plot,
-  //     translateX: "0",
-  //     easing: 'linear',
-  //     duration: 2000
-  //   });
-
-  //   $('.stop').on('click', function(){
-  //     movingPlot.pause;
-  //   });
-
-  // });
-
-
-
-
 
 
   $('.reset').on('click', function(){
     anime({
-      targets: plot,
+      targets: '#plot',
       translateX: "0",
       translateY: "0",
       easing: 'linear',
@@ -139,42 +89,30 @@ $(function(){
 
 
 
-  // document.querySelector('.btn .start').onclick = animation.play;
-  // // document.querySelector('.play-pause-demo .play').onclick = animation.play;
-  // document.querySelector('.stop').onclick = animation.pause;
-
-
+  
+  var playPauseAnim = anime({
+    targets: '#plot',
+    loop: false,
+    keyframes: [
+      { translateY: 200, duration: 1000},
+      { translateX: 400, duration: 2000},
+      { translateY: 0, duration: 1000},
+      { translateX: 0, duration: 2000}
+    ],
+    easing: 'linear',
+    autoplay: false // 自動再生を禁止します。
+  });
+  
   // STARTボタンを押した時にアニメーション開始
   $('.start').click(function(){
-    var animation = anime({
-      targets: plot,
-      loop: false,
-      keyframes: [
-        { translateY: 200, duration: 1000},
-        { translateX: 400, duration: 2000},
-        { translateY: 0, duration: 1000},
-        { translateX: 0, duration: 2000}
-      ],
-      easing: 'linear',
-    });
-    animation.play();
+    $('#plot').css('background-color', 'blue')
+    playPauseAnim.play();
   });
-  // STOPボタンを押したときに停止する
+
+  // STOPボタンを押したときに停止する?
   $('.stop').click(function(){
-    var animation = anime({
-      targets: plot,
-      loop: false,
-      keyframes: [
-        { translateY: 200, duration: 1000},
-        { translateX: 400, duration: 2000},
-        { translateY: 0, duration: 1000},
-        { translateX: 0, duration: 2000}
-      ],
-      easing: 'linear',
-    });
-    animation.pause();
+    $('#plot').css('background-color', 'blue')
+    playPauseAnim.pause();
   });
-
-
 
 });
