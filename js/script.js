@@ -75,18 +75,6 @@ $(function(){
 
 
 
-  $('.reset').on('click', function(){
-    anime({
-      targets: '#plot',
-      translateX: "0",
-      translateY: "0",
-      easing: 'linear',
-      backgroundColor: '#00ffff',
-      duration: 100
-    });
-  });
-
-
 
 
   
@@ -114,5 +102,12 @@ $(function(){
     $('#plot').css('background-color', 'blue')
     playPauseAnim.pause();
   });
+
+  // RESETボタンを押すとアニメーションが初期位置に戻り停止する
+  $('.reset').click(function() {
+    $('#plot').css('background-color', '#00ffff')
+    playPauseAnim.reset();
+    playPauseAnim.pause();
+  })
 
 });
