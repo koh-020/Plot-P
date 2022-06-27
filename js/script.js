@@ -10,7 +10,7 @@ $(function(){
   //   var $point = $('.relative .circle');
   //   var starPos = { x: 40, y: 40}; //始点（座標）
   //   var endPos = {x: 40, y: 200}; //終点（座標）
-    
+
   //   var StartAnimate = function(){
   //     $point.animate({ count: 1}, {
   //       duration : 1000,
@@ -24,12 +24,12 @@ $(function(){
   //       }
   //     });
   //   }
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
   //   $('.circle').()
   // })
 
@@ -76,6 +76,7 @@ $(function(){
 
 
 
+
 $('#setting').click(function() {
   let x = $('#x').val();
   let y = $('#y').val();
@@ -93,7 +94,7 @@ $('#setting').click(function() {
   $('.square').outerHeight(squareHeight);
   console.log("squareWidth：" + squareWidth);
   console.log("squareHeight：" + squareHeight);
-  
+
   console.log("x：" + x);
   console.log("y：" + y);
   console.log("MAX_WIDTH：" + MAX_WIDTH);
@@ -108,7 +109,7 @@ $('#setting').click(function() {
 
 
 
-  
+
   let playPauseAnim = anime({
     targets: '#plot',
     loop: false,
@@ -121,7 +122,7 @@ $('#setting').click(function() {
     easing: 'linear',
     autoplay: false // 自動再生を禁止します。
   });
-  
+
   // STARTボタンを押した時にアニメーション開始
   $('.start').click(function(){
     console.log("squareHeight" + squareHeight);
