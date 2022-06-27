@@ -4,41 +4,121 @@
   <meta charset="UTF-8">
   <title>動く点P</title>
   <link rel="stylesheet" href="css/style.css" />
+  <!-- <style>
+    svg {
+      height: 150px;
+      width: 300px;
+    }
+  </style> -->
 </head>
   <body>
     <div class="container">
       <h1>動く点Pを制御せよ！</h1>
       <div class="condition">
         <div>
-          横の長さ<input type="x">
+          横の長さ(cm)<input type="text" id="x" value="400">
         </div>
         <div>
-          縦の長さ<input type="y">
+          縦の長さ(cm)<input type="text" id="y" value="200">
         </div>
         <div>
-          速さ<input type="v">
+          速さ(cm/s)<input type="text" id="v" value="100">
         </div>
-      </div>  
+        <button id="setting">設定を変更</button>
+      </div>
       <div class="relative">
         <div class="square"></div>
-        <div class="circle moving"></div>
+        <div class="circle moving" id="plot"></div>
       </div>
       <div class="btn">
         <button class="start">START</button>
         <button class="stop">STOP</button>
+        <button class="reset">RESET</button>
       </div>
+
+
+      <!-- アニメーション -->
+      <div class="sample">
+        <p class="point">&nbsp;</p>
+      </div>
+
+
+      <!-- anime.js試し -->
+      <div class="wrapper">
+        <div class="square-try" id="elem"></div>
+      </div>
+
+
+
+
+      <svg width="400" height="200" viewBox="0, 0, 400, 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="0" x2="400" y2="200" stroke="#e74c3c" />
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 134">
+        <path d="
+          M133 50
+          s0-50-66-50
+          S0 50 0 50
+          l133 33
+          s0 50-66 50
+          S0 83 0 83
+
+          M133 0
+          L200 133 266 0
+
+          M360 83
+          l40 0
+          s0 50-66 50-66-66-66-66
+          S267 0 333 0 400 50 400 50"
+
+          fill="none" stroke="#e74c3c"/>
+      </svg>
+
+      <svg weight="400" height="400">');
+        document.write('
+          <line x1=0 y1=200 x2=400 y2=200 stroke="black" />
+          <line x1=200 y1=0 x2=200 y2=400 stroke="black" />
+        ');
+
+
+        document.write('<line x1=0 y1=0 x2=200 y2=200 stroke="blue"
+        transform="translate(200, 200)scale(1, -1)" />');
+
+        <script>
+          let x1 = -5, y1, x2, y2;
+          let a = 1, b = 0; //y=ax^2+b のa, bの値
+          for (let i = 0; i < 10; i++) {
+            y1 = a * x2 * x2 + b; //始点のy座標を求める
+            //始点のx座標より1大きい値を終点のx座標とする
+            x2 = x1 + 1;
+            y2 = a * x2 * x2 + b; //終点のy座標を求める
+            // //始点と終点の座標を元に直線を引く
+            // document.write('<g transform="translate(200, 200)scale(40, -40)"<line x1='+x1+'
+            //   y1='+y1+' x2='+x2+' y2='+y2+' stroke-width="0.05"/></g>');
+
+             x1 = x2; //終点のx座標を次の始点のx座標とする
+          };
+
+        </script>
+      </svg>
+
     </div>
 
 
-    <!-- アニメーション -->
-    <div class="sample">
-      <p class="point">&nbsp;</p>
-    </div>
 
 
 
-    
+
+
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script>
+
+    </script>
+
+
+
   </body>
 </html>
